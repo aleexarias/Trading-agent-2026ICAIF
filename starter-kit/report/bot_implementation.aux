@@ -1,0 +1,102 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Overview}{3}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What the agent does.}{3}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Headline evidence.}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Competition rules and what they imply}{3}{section.2}\protected@file@percent }
+\newlabel{sec:rules}{{2}{3}{Competition rules and what they imply}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Rules reproduced by the agent and the simulator}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Evaluation metrics}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Implications for strategy design}{4}{subsection.2.3}\protected@file@percent }
+\newlabel{sec:implications}{{2.3}{4}{Implications for strategy design}{subsection.2.3}{}}
+\newlabel{prop:scaling}{{1}{4}{Exposure scaling}{proposition.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Fees against predictability (back-of-envelope).}{4}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data}{4}{section.3}\protected@file@percent }
+\newlabel{sec:data}{{3}{4}{Data}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Official development dataset}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Yahoo Finance data}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Cross-source agreement.}{5}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bar timing}{5}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:bartiming}{{3.3}{5}{Bar timing}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Decision timeline and information sets}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Approach 1: volatility-budgeted core allocation (traded)}{5}{section.5}\protected@file@percent }
+\newlabel{sec:core}{{5}{5}{Approach 1: volatility-budgeted core allocation (traded)}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Risk model}{5}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Portfolio constructions considered}{6}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Cap enforcement.}{6}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Volatility-targeted exposure}{6}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Current weights and the no-trade rule}{6}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Upload format.}{6}{section*.7}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Production parameters of approach\nobreakspace  {}1 (\texttt  {bot/production.json}).}}{7}{table.1}\protected@file@percent }
+\newlabel{tab:params}{{1}{7}{Production parameters of approach~1 (\code {bot/production.json})}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Approach 2: pooled LightGBM cross-sectional model (shadow)}{7}{section.6}\protected@file@percent }
+\newlabel{sec:alpha}{{6}{7}{Approach 2: pooled LightGBM cross-sectional model (shadow)}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Features}{7}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Labels}{7}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Model and training}{7}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Walk-forward protocol with purging.}{8}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Predictive results}{8}{subsection.6.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Out-of-sample information coefficients of the LightGBM model. The one-day model is positive in every period; the one-week model is not and was discarded.}}{8}{table.2}\protected@file@percent }
+\newlabel{tab:ic}{{2}{8}{Out-of-sample information coefficients of the LightGBM model. The one-day model is positive in every period; the one-week model is not and was discarded}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Tilt operator}{8}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Approach 4: online expert weighting (shadow)}{8}{section.7}\protected@file@percent }
+\newlabel{sec:online}{{7}{8}{Approach 4: online expert weighting (shadow)}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Backtesting and selection methodology}{9}{section.8}\protected@file@percent }
+\newlabel{sec:backtest}{{8}{9}{Backtesting and selection methodology}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Simulator}{9}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Windows}{9}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Competitor field and rank scoring}{9}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Search space and gate}{10}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Results}{10}{section.9}\protected@file@percent }
+\newlabel{sec:results}{{9}{10}{Results}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}The competitor field}{10}{subsection.9.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Field members ranked against each other. Strategies that trade every round lose 3--9\% per window to fees. The best field member is the half-cash equal-weight portfolio, which illustrates Proposition\nobreakspace  {}\ref  {prop:scaling}.}}{10}{table.3}\protected@file@percent }
+\newlabel{tab:field}{{3}{10}{Field members ranked against each other. Strategies that trade every round lose 3--9\% per window to fees. The best field member is the half-cash equal-weight portfolio, which illustrates Proposition~\ref {prop:scaling}}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Approach 1: grid results and the choice of configuration}{10}{subsection.9.2}\protected@file@percent }
+\newlabel{sec:choice}{{9.2}{10}{Approach 1: grid results and the choice of configuration}{subsection.9.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Judgement in the final choice.}{10}{section*.9}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Selected rows of the 96-configuration grid (both datasets pooled, bands $(0.20,0.05)$). The production configuration is in bold. The full grid is in \texttt  {private/results/core\_windows.csv}.}}{11}{table.4}\protected@file@percent }
+\newlabel{tab:grid}{{4}{11}{Selected rows of the 96-configuration grid (both datasets pooled, bands $(0.20,0.05)$). The production configuration is in bold. The full grid is in \code {private/results/core\_windows.csv}}{table.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Effect of the no-trade bands on the production configuration.}}{11}{table.5}\protected@file@percent }
+\newlabel{tab:bands}{{5}{11}{Effect of the no-trade bands on the production configuration}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Approaches 2 and 4}{11}{subsection.9.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Overlays on the production core, bands $(0.20,0.05)$, on periods with out-of-sample model scores (official 2023--2025, Yahoo June 2024--October 2026).}}{11}{table.6}\protected@file@percent }
+\newlabel{tab:overlays}{{6}{11}{Overlays on the production core, bands $(0.20,0.05)$, on periods with out-of-sample model scores (official 2023--2025, Yahoo June 2024--October 2026)}{table.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Robustness}{12}{subsection.9.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Perturbations of the production configuration. Changing the per-stock cap ($\times 0.75$, $\times 1.5$) or blending with equal weight gives results identical to production because no cap binds for an equal-weight book. Doubling the fee \emph  {improves} the relative position because high-turnover competitors are hurt more.}}{12}{table.7}\protected@file@percent }
+\newlabel{tab:robust}{{7}{12}{Perturbations of the production configuration. Changing the per-stock cap ($\times 0.75$, $\times 1.5$) or blending with equal weight gives results identical to production because no cap binds for an equal-weight book. Doubling the fee \emph {improves} the relative position because high-turnover competitors are hurt more}{table.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Production configuration by window start year. In the 2022 bear market the strategy loses money but keeps its relative position, because lower exposure and near-zero turnover protect drawdown and turnover ranks.}}{12}{table.8}\protected@file@percent }
+\newlabel{tab:years}{{8}{12}{Production configuration by window start year. In the 2022 bear market the strategy loses money but keeps its relative position, because lower exposure and near-zero turnover protect drawdown and turnover ranks}{table.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Live execution system}{12}{section.10}\protected@file@percent }
+\newlabel{sec:live}{{10}{12}{Live execution system}{section.10}{}}
+\@writefile{toc}{\contentsline {paragraph}{Data validation.}{12}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Failure handling.}{12}{section*.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Live architecture. All platform calls go through the starter kit's own client.}}{13}{figure.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Runner loop for one phase}}{13}{algocf.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Audit trail.}{13}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Verification}{14}{section.11}\protected@file@percent }
+\newlabel{sec:tests}{{11}{14}{Verification}{section.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {12}Reproduction guide}{14}{section.12}\protected@file@percent }
+\newlabel{sec:repro}{{12}{14}{Reproduction guide}{section.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}Environment}{14}{subsection.12.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}Steps}{14}{subsection.12.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}Determinism}{15}{subsection.12.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.4}Code map}{16}{subsection.12.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {13}Limitations}{16}{section.13}\protected@file@percent }

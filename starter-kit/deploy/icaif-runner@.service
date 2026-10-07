@@ -1,0 +1,13 @@
+[Unit]
+Description=ICAIF 2026 trading runner (%i phase)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Documents/tradebot/Trading-agent-2026ICAIF/starter-kit
+ExecStart=%h/Documents/tradebot/Trading-agent-2026ICAIF/starter-kit/.venv/bin/python -m bot.runner --phase %i
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,40 @@
+\BOOKMARK [1][-]{section.1}{Overview}{}% 1
+\BOOKMARK [1][-]{section.2}{Competition rules and what they imply}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Rules reproduced by the agent and the simulator}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Evaluation metrics}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Implications for strategy design}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Data}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Official development dataset}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Yahoo Finance data}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Bar timing}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Decision timeline and information sets}{}% 10
+\BOOKMARK [1][-]{section.5}{Approach 1: volatility-budgeted core allocation \(traded\)}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{Risk model}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.2}{Portfolio constructions considered}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.3}{Volatility-targeted exposure}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.4}{Current weights and the no-trade rule}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Approach 2: pooled LightGBM cross-sectional model \(shadow\)}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Features}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.2}{Labels}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.3}{Model and training}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.4}{Predictive results}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.5}{Tilt operator}{section.6}% 21
+\BOOKMARK [1][-]{section.7}{Approach 4: online expert weighting \(shadow\)}{}% 22
+\BOOKMARK [1][-]{section.8}{Backtesting and selection methodology}{}% 23
+\BOOKMARK [2][-]{subsection.8.1}{Simulator}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.2}{Windows}{section.8}% 25
+\BOOKMARK [2][-]{subsection.8.3}{Competitor field and rank scoring}{section.8}% 26
+\BOOKMARK [2][-]{subsection.8.4}{Search space and gate}{section.8}% 27
+\BOOKMARK [1][-]{section.9}{Results}{}% 28
+\BOOKMARK [2][-]{subsection.9.1}{The competitor field}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.2}{Approach 1: grid results and the choice of configuration}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.3}{Approaches 2 and 4}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.4}{Robustness}{section.9}% 32
+\BOOKMARK [1][-]{section.10}{Live execution system}{}% 33
+\BOOKMARK [1][-]{section.11}{Verification}{}% 34
+\BOOKMARK [1][-]{section.12}{Reproduction guide}{}% 35
+\BOOKMARK [2][-]{subsection.12.1}{Environment}{section.12}% 36
+\BOOKMARK [2][-]{subsection.12.2}{Steps}{section.12}% 37
+\BOOKMARK [2][-]{subsection.12.3}{Determinism}{section.12}% 38
+\BOOKMARK [2][-]{subsection.12.4}{Code map}{section.12}% 39
+\BOOKMARK [1][-]{section.13}{Limitations}{}% 40

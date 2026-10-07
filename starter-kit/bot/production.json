@@ -1,0 +1,28 @@
+{
+  "version": "2026-10-06.1",
+  "selected_by": "python -m bot.experiments --core '{\"core\": \"equal_weight|cap0.1|vt0.1|ex0.8|lb126|blend0.0\", \"band\": {\"band_l1\": 0.2, \"band_max\": 0.05}}'",
+  "agent": {
+    "allocation": {
+      "construction": "equal_weight",
+      "cov_method": "ledoit_wolf",
+      "lookback_days": 126,
+      "cap": 0.10,
+      "sector_cap": 0.30,
+      "exposure": 0.8,
+      "vol_target": 0.10,
+      "min_exposure": 0.5,
+      "band_l1": 0.20,
+      "band_max": 0.05,
+      "trade_fraction": 1.0
+    },
+    "alpha": {
+      "mode": "shadow",
+      "model_path": "bot/models/lgbm.txt",
+      "strength": 0.15
+    },
+    "online": {
+      "mode": "shadow",
+      "strength": 0.15
+    }
+  }
+}

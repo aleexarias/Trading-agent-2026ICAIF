@@ -1,0 +1,10 @@
+# Team agent dependencies (on top of the kit's requirements.txt)
+-r requirements.txt
+lightgbm==4.7.0
+numpy==2.5.3
+pandas==3.0.6
+pyarrow==25.0.1
+pytest==9.1.1
+scikit-learn==1.9.1
+scipy==1.18.1
+yfinance==1.7.0
