@@ -103,3 +103,14 @@ def test_unreadable_positions_never_look_like_cash():
     assert method == 'snapshot' and w.sum() == pytest.approx(0.8)
     with pytest.raises(DataError):
         current_weights({'cash': '200000', 'positions': [{'name': 'AAPL', 'lots': 1}], 'current_weights': {}}, prices)
+
+
+def test_live_panel_uses_yahoo_bar_ends_mid_day(bars):
+    from bot.live import DataError, load_live_panel
+    day = pd.Timestamp('2026-08-04')
+    upto_first = bars[bars.timestamp_et <= day + pd.Timedelta(hours=9, minutes=30)]
+    panel, info = load_live_panel(now=day + pd.Timedelta(hours=10, minutes=45), bars=upto_first)
+    assert info['last_bar_end'] == '2026-08-04 10:30:00'
+    assert panel.end.iloc[-1] == day + pd.Timedelta(hours=10, minutes=30)
+    with pytest.raises(DataError):
+        load_live_panel(now=day + pd.Timedelta(hours=12, minutes=45), bars=upto_first)

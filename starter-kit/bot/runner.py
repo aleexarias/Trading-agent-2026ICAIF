@@ -176,8 +176,11 @@ class Runner:
                 own = session.round(round_id)
                 if any(d.get('selection_status') != 'NOT_ELIGIBLE' for d in own.get('decisions', [])):
                     return self._finish(record, entry, None, 'occupied', 'slot already consumed')
-                portfolio = session.portfolio(self.phase)
             deadline = timestamp(row['deadline'])
+            portfolio = self._fresh_portfolio(schedule, deadline, simulated_now)
+            if portfolio is None:
+                return self._finish(record, entry, None, 'skipped',
+                                    'portfolio not updated after the previous execution')
             panel, data_info = self._fetch(deadline, simulated_now)
             if panel is None:
                 return self._finish(record, entry, None, 'skipped', data_info)
@@ -202,6 +205,34 @@ class Runner:
         except Exception as error:
             log.exception('round %s failed', round_id)
             return self._finish(record, entry, None, 'skipped', f'agent failure: {type(error).__name__}: {error}')
+
+    def _required_as_of(self, schedule):
+        """Execution time of the latest submitted round that has already executed, if any."""
+        now = self.now(schedule)
+        times = {r['id']: timestamp(r['execution_time']) for r in schedule['rounds']}
+        done = [times[rid] for rid, rec in self.state['rounds'].items()
+                if rec.get('status') == 'submitted' and rid in times and times[rid] <= now]
+        return max(done) if done else None
+
+    def _fresh_portfolio(self, schedule, deadline, simulated_now):
+        """Portfolio that reflects our last executed decision, or None if it never catches up.
+
+        The backend updates holdings some minutes after the nominal execution
+        time, so a decision taken from an older snapshot would rebuy positions
+        that are already held.
+        """
+        required = self._required_as_of(schedule)
+        while True:
+            with self.session_factory() as session:
+                portfolio = session.portfolio(self.phase)
+            as_of = portfolio.get('as_of')
+            if required is None or (as_of and timestamp(as_of) >= required):
+                return portfolio
+            remaining = deadline.timestamp() - self.data_margin - self.clock().timestamp()
+            if simulated_now is not None or remaining <= 0:
+                return None
+            log.warning('portfolio as_of %s is older than the execution at %s; retrying', as_of, required)
+            self.sleep(min(self.retry_seconds, remaining))
 
     def _fetch(self, deadline, simulated_now):
         last_error = None

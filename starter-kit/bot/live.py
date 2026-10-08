@@ -54,6 +54,13 @@ def download_bars(now=None, period=HISTORY):
     return bars, now
 
 
+def yahoo_bar_ends(index):
+    """Yahoo hourly bars last one hour, except the 15:30 bar which ends at the 16:00 close."""
+    idx = pd.DatetimeIndex(index)
+    minutes = np.where((idx.hour == 15) & (idx.minute == 30), 30, 60)
+    return pd.Series(idx + pd.to_timedelta(minutes, unit='min'), index=idx)
+
+
 def load_live_panel(now=None, bars=None):
     """Fetch and validate live bars; return (panel, diagnostics) or raise DataError.
 
@@ -70,6 +77,7 @@ def load_live_panel(now=None, bars=None):
     if missing:
         raise DataError(f'Missing symbols: {missing}')
     panel = panel_from_long(bars)
+    panel.end = yahoo_bar_ends(panel.index)
     last_start = panel.index[-1]
     previous_start = panel.index[-2]
     lagging = sorted(present[present < last_start].index)

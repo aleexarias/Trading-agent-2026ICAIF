@@ -155,3 +155,28 @@ def test_submitted_decision_replays_exactly(platform_env, panel):
     round_dir = tmp / 'decisions' / 'validation' / 'validation-2026-10-08-r3'
     recomputed, uploaded = replay(round_dir, config_path=tmp / 'config.json', log_path=tmp / 'log.jsonl')
     assert recomputed == uploaded
+
+
+def test_stale_portfolio_after_execution_is_not_traded_on(platform_env, panel):
+    platform, _, _ = platform_env
+    runner = make_runner(platform_env, panel)
+    runner.state['rounds']['validation-2026-10-08-r2'] = {'status': 'submitted'}
+    runner.data_margin = 10 ** 6
+    result = runner.run(once=True)
+    assert result['status'] == 'skipped' and 'portfolio' in result['note'] and platform.posts == []
+
+
+def test_waits_for_portfolio_to_catch_up(platform_env, panel):
+    platform, _, _ = platform_env
+    runner = make_runner(platform_env, panel)
+    runner.state['rounds']['validation-2026-10-08-r2'] = {'status': 'submitted'}
+    advance = runner.sleep
+
+    def sleep(seconds):
+        advance(seconds)
+        platform.portfolio = dict(platform.portfolio, as_of='2026-10-08T10:30:00-04:00')
+
+    runner.sleep = sleep
+    result = runner.run(once=True)
+    assert result['status'] == 'submitted'
+    assert platform.now > pd.Timestamp('2026-10-08 10:45', tz=ET)

@@ -78,7 +78,8 @@ class FakePlatform:
     def __init__(self, now, price_fn=None):
         self.now = pd.Timestamp(now)
         self.price_fn = price_fn
-        self.portfolio = {'cash': '1000000', 'nav': '1000000', 'positions': [], 'current_weights': {}}
+        self.portfolio = {'cash': '1000000', 'nav': '1000000', 'positions': [], 'current_weights': {},
+                          'as_of': None}
         self.round_decisions = {}
         self.uploads = []
         self.submissions = {}
@@ -134,7 +135,9 @@ class FakePlatform:
                 self.portfolio = {'nav': '1000000', 'cash': str(1e6 * (1 - sum(weights.values()))),
                                   'positions': [{'symbol': s, 'shares': w * 1e6 / prices[s]}
                                                 for s, w in weights.items() if w > 0],
-                                  'current_weights': weights}
+                                  'current_weights': weights,
+                                  'as_of': next(r['execution_time'] for r in self.schedule()['rounds']
+                                                if r['id'] == payload['round_id'])}
             return httpx.Response(200, json={'id': sid})
         if method == 'GET' and path == '/api/submissions/':
             rows = [{'id': sid, 'owner': 'tester', 'phase': 120, 'parent': None} for sid in self.submissions]
